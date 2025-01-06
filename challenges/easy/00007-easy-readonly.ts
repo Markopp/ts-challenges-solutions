@@ -31,7 +31,9 @@
 
 /* _____________ Your Code Here _____________ */
 
-type MyReadonly<T> = any
+type MyReadonly<T> = {
+  readonly [P in keyof T]: T[P]
+}
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
@@ -48,10 +50,3 @@ interface Todo1 {
     author: string
   }
 }
-
-/* _____________ Further Steps _____________ */
-/*
-  > Share your solutions: https://tsch.js.org/7/answer
-  > View solutions: https://tsch.js.org/7/solutions
-  > More Challenges: https://tsch.js.org
-*/
